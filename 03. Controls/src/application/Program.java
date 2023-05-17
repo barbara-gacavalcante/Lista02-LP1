@@ -1,3 +1,8 @@
+/* Alunos: 
+ * 		Bárbara Geovanna Alves Cavalcante (20220055021)
+ * 		Samuel da Silva Ferreira (20220054946)
+ */
+
 package application;
 
 import java.util.Scanner;
@@ -31,44 +36,59 @@ public class Program {
 				
 				ControleRemoto controleRemoto = new ControleRemoto(tv);
 			
-				System.out.println("\nVolume atual: " + controleRemoto.consultarVolume());
-                System.out.println("Canal atual: " + controleRemoto.consultarCanal());
+				System.out.println("\n====================================================\n");
+				System.out.println("Status atuais: ");
+				System.out.println("\nVolume: " + controleRemoto.consultarVolume());
+                System.out.println("Canal: " + controleRemoto.consultarCanal());
+                System.out.println("\n====================================================\n\n\n");
 				
 				switch (op) {
                 case 1:
+                	System.out.println("====================================================\n");
                 	System.out.println("\nAumentando...");          	
                     controleRemoto.aumentarVolume();
-                    System.out.println("\nVolume atual: " + controleRemoto.consultarVolume());
+                    System.out.println("\nVolume atualizado: " + controleRemoto.consultarVolume());
+                    System.out.println("\n====================================================");
                     break;
                 case 2:
+                	System.out.println("====================================================\n");
                 	System.out.println("\nDiminuindo...");
                     controleRemoto.diminuirVolume();
-                    System.out.println("\nVolume atual: " + controleRemoto.consultarVolume());
+                    System.out.println("\nVolume atualizado: " + controleRemoto.consultarVolume());
+                    System.out.println("\n====================================================");
                     break;
                 case 3:
+                	System.out.println("====================================================\n");
                 	System.out.println("\nAumentando...");
                     controleRemoto.aumentarCanal();
-                    System.out.println("\nCanal atual: " + controleRemoto.consultarCanal());
+                    System.out.println("\nCanal atualizado: " + controleRemoto.consultarCanal());
+                    System.out.println("\n====================================================");
                     break;
                 case 4:
+                	System.out.println("====================================================\n");
                 	System.out.println("\nDiminuindo...");
                     controleRemoto.diminuirCanal();
-                    System.out.println("\nCanal atual: " + controleRemoto.consultarCanal());
+                    System.out.println("\nCanal atualizado: " + controleRemoto.consultarCanal());
+                    System.out.println("\n====================================================");
                     break;
                 case 5:
+                	System.out.println("====================================================\n");
                     System.out.print("\nA qual canal você gostaria de assistir agora? ");
                     int novoCanal = sc.nextInt();
                     controleRemoto.trocarCanal(novoCanal);
-                    System.out.println("\nCanal atual: " + controleRemoto.consultarCanal());
+                    System.out.println("\nCanal atualizado: " + controleRemoto.consultarCanal());
+                    System.out.println("\n====================================================");
                     break;
                 case 6:
-                    System.out.println("\nVolume atual: " + controleRemoto.consultarVolume());
-                    System.out.println("Canal atual: " + controleRemoto.consultarCanal());
+                	System.out.println("====================================================\n");
+                    System.out.println("\nVolume atualizado: " + controleRemoto.consultarVolume());
+                    System.out.println("Canal atualizado: " + controleRemoto.consultarCanal());
+                    System.out.println("\n====================================================");
                     break;
                 case 7:
                     System.exit(0);
                 default:
-                    System.out.println("Operação inválida.");
+                    System.out.println("Operação inválida."); 
                     break;
             }
         } while (op != 7);

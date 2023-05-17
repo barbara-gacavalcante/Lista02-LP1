@@ -25,7 +25,7 @@ public class Televisao {
 	}
 
 	public void aumentarVolume() {
-		volume++;
+		this.volume++;
 	}
 	
 	public void aumentarCanal() {
@@ -34,7 +34,7 @@ public class Televisao {
 	
 	public void diminuirVolume() {
 		if (volume > 0) {
-			volume--;
+			this.volume--;
 		}
 	}
 	
