@@ -6,7 +6,6 @@
 package application;
 
 import java.util.Scanner;
-
 import entities.ControleRemoto;
 import entities.Televisao;
 
@@ -20,6 +19,10 @@ public class Program {
 			
 			int op;
 			
+			Televisao tv = new Televisao();
+			
+			ControleRemoto controleRemoto = new ControleRemoto(tv);
+			
 			do {
 				System.out.println("\n\n\nEscolha uma operação: ");
 				System.out.print("\n1. Aumentar o volume;"
@@ -32,15 +35,13 @@ public class Program {
 						+ "\n\nSua resposta: ");
 				op = sc.nextInt();
 				
-				Televisao tv = new Televisao();
-				
-				ControleRemoto controleRemoto = new ControleRemoto(tv);
-			
-				System.out.println("\n====================================================\n");
-				System.out.println("Status atuais: ");
-				System.out.println("\nVolume: " + controleRemoto.consultarVolume());
-                System.out.println("Canal: " + controleRemoto.consultarCanal());
-                System.out.println("\n====================================================\n\n\n");
+				if(op != 6 && op != 7) {
+					System.out.println("\n====================================================\n");
+					System.out.println("Status atuais: ");
+					System.out.println("\nVolume: " + controleRemoto.consultarVolume());
+	                System.out.println("Canal: " + controleRemoto.consultarCanal());
+	                System.out.println("\n====================================================\n\n\n");
+				}
 				
 				switch (op) {
                 case 1:
