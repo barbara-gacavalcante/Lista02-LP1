@@ -1,3 +1,8 @@
+/* Alunos: 
+ * 		Bárbara Geovanna Alves Cavalcante (20220055021)
+ * 		Samuel da Silva Ferreira (20220054946)
+*/
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
