@@ -69,12 +69,4 @@ public class Sistema implements SysInterface {
     return null;
   }
 
-  public boolean checkIfAluno(String name) {
-    for (int i = 0; i < database.size(); i++) {
-      if (database.get(i).getName().equals(name)) {
-        return true;
-      }
-    }
-    return false;
-  }
 }

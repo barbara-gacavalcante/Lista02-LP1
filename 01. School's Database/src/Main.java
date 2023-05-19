@@ -11,7 +11,7 @@ import sistema.*;
 
 public class Main {
 
-    private static final int TOTALALUNOS = 2;
+    private static final int TOTALALUNOS = 10;
     private static final int TOTALPROFESSORES = 5;
 
     private static Scanner sc = new Scanner(System.in);
@@ -89,7 +89,7 @@ public class Main {
                                         "\n*******************************************************************************");
                                 System.out.println("Digite o nome do aluno a procurar: ");
                                 name = sc.nextLine();
-                                if (sys.checkIfAluno(name)) {
+                                if (checkIfAluno(name)) {
                                     sys.printAluno(sys.findAluno(name));
                                 } else
                                     System.out.println("Não há aluno com esse nome registrado...");
@@ -195,6 +195,7 @@ public class Main {
             subject = sc.nextLine();
             Professor p = new Professor(name, registration, subject);
             syscon.registrarProf(sys, p);
+            profInt++;
         } while (profInt < TOTALPROFESSORES);
     }
 
@@ -218,6 +219,15 @@ public class Main {
     public static boolean checkIfInRange(int i) {
         if (sys.getDatabase().size() >= i)
             return true;
+        return false;
+    }
+
+    public static boolean checkIfAluno(String name) {
+        for (int i = 0; i < sys.getDatabase().size(); i++) {
+            if (sys.getDatabase().get(i).getName().equals(name)) {
+                return true;
+            }
+        }
         return false;
     }
 
