@@ -11,7 +11,7 @@ import sistema.*;
 
 public class Main {
 
-    private static final int TOTALALUNOS = 2;
+    private static final int TOTALALUNOS = 10;
     private static final int TOTALPROFESSORES = 5;
 
     private static Scanner sc = new Scanner(System.in);
@@ -154,7 +154,7 @@ public class Main {
             System.out.println("Digite o nome do aluno: ");
             name = sc.nextLine();
             do {
-                System.out.println("Digite o número da matrícula: ");
+                System.out.println("Digite o número da matrícula (xxxxx): ");
                 registration = sc.nextLine();
             } while (!checkIfValidRegistration(registration));
             System.out.println("Quantos responsaveis serão cadastrados para esse aluno: ");
@@ -188,7 +188,7 @@ public class Main {
             System.out.println("Digite o nome do Professor: ");
             name = sc.nextLine();
             do {
-                System.out.println("Digite o número da matrícula do Professor: ");
+                System.out.println("Digite o número da matrícula do Professor (xxxxx): ");
                 registration = sc.nextLine();
             } while (!checkIfValidRegistration(registration));
             System.out.println("Digite a matéria do Professor: ");
