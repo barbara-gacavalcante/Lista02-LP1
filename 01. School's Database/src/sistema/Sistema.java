@@ -17,6 +17,10 @@ public class Sistema implements SysInterface {
     return database.get(index);
   }
 
+  public ArrayList<Professor> getListaProfessores() {
+    return listaProfessores;
+  }
+
   public void register(Aluno a) {
     database.add(a);
   }
@@ -26,7 +30,8 @@ public class Sistema implements SysInterface {
   }
 
   public void printAluno(Aluno a) {
-    System.out.println("Nome: " + a.getName() + "\nMatrícula: " + a.getRegistration());
+    System.out.println("Nome: " + a.getName() + "\nMatrícula: " + a.getRegistration() + "\nEmail: " + a.getEmail()
+        + "\nNúmero: " + a.getNumber());
     System.out.println("\nResponsaveis: ");
     printResponsavel(a);
     System.out.println("*******************************************************************************");
@@ -34,7 +39,7 @@ public class Sistema implements SysInterface {
 
   public void printResponsavel(Aluno a) {
     for (Pais e : a.getResponsaveis()) {
-      System.out.println("\nNome: " + e.getName() + "\nEmail: " + e.getEmail() +
+      System.out.println("Nome: " + e.getName() + "\nEmail: " + e.getEmail() +
           "\nNúmero: " + e.getNumber() + "\n");
     }
   }
@@ -57,6 +62,14 @@ public class Sistema implements SysInterface {
     }
     for (int i = 0; i < database.size(); i++) {
       printResponsavel(database.get(i));
+    }
+  }
+
+  public void printProfessores() {
+    System.out.println("Lista de Professores:");
+    for (Professor p : listaProfessores) {
+      System.out.println("\nNome: " + p.getName() + "\nEmail: " + p.getEmail() +
+          "\nNúmero: " + p.getNumber() + "\n");
     }
   }
 

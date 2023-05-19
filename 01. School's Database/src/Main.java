@@ -35,6 +35,7 @@ public class Main {
                         + "\n3. Printar informação de algum aluno;"
                         + "\n4. Printar lista de responsaveis;"
                         + "\n5. Registrar professores;"
+                        + "\n6. Printar lista de professores;"
                         + "\n0. Sair.\n");
                 op = Integer.parseInt(sc.nextLine());
                 switch (op) {
@@ -113,6 +114,14 @@ public class Main {
                         registerProf(sys);
                         break;
 
+                    case 6: //
+                        if (!checkIfProfessor()) {
+                            System.out.println("Nenhum professor ainda foi cadastrado...");
+                            UI();
+                        }
+                        sys.printProfessores();
+                        break;
+
                     case 0:
                         System.out.println("Finalizando programa...");
                         sc.close();
@@ -122,31 +131,21 @@ public class Main {
                         UI();
                         break;
                 }
-            } while (validRange(op, 0, 4));
+            } while (validRange(op, 0, 5));
         } catch (NumberFormatException e) {
             System.out.println(e);
             UI();
         }
     }
 
-    public static boolean validRange(int option, int start, int end) {
-        if (option <= end && option >= start)
-            return true;
-        return false;
-    }
-
-    public static boolean checkIfHasElement(Sistema sys) {
-        if (sys.getDatabase().size() == 0)
-            return false;
-        return true;
-    }
-
     public static void regLogic() {
         String name = new String();
-        String registration;
-        String nomeRes = new String();
-        String email = new String();
         String number = new String();
+        String email = new String();
+        String registration;
+        String nameRes = new String();
+        String emailRes = new String();
+        String numberRes = new String();
         int resInt = 0;
         int resAmount = 0;
         resInt = 0;
@@ -154,23 +153,27 @@ public class Main {
             System.out.println("Digite o nome do aluno: ");
             name = sc.nextLine();
             do {
-                System.out.println("Digite o número da matrícula: ");
+                System.out.println("Digite o número da matrícula (xxxxx): ");
                 registration = sc.nextLine();
             } while (!checkIfValidRegistration(registration));
+            System.out.println("Digite o Email do aluno: ");
+            email = sc.nextLine();
+            System.out.println("Digite o número de telefone do aluno: ");
+            number = sc.nextLine();
             System.out.println("Quantos responsaveis serão cadastrados para esse aluno: ");
             resAmount = Integer.parseInt(sc.nextLine());
             do {
                 System.out.println("Digite o nome do responsavel: ");
-                nomeRes = sc.nextLine();
+                nameRes = sc.nextLine();
                 System.out.println("Digite o Email do responsavel: ");
-                email = sc.nextLine();
+                emailRes = sc.nextLine();
                 System.out.println("Digite o número de telefone do responsavel: ");
-                number = sc.nextLine();
-                Pais p = new Pais(nomeRes, email, number);
+                numberRes = sc.nextLine();
+                Pais p = new Pais(nameRes, numberRes, emailRes);
                 responsaveisTemp.add(p);
                 resInt++;
             } while (resInt < resAmount);
-            Aluno a = new Aluno(name, registration, responsaveisTemp);
+            Aluno a = new Aluno(name, number, email, registration, responsaveisTemp);
             responsaveisTemp.clear();
             sys.register(a);
         } catch (NumberFormatException e) {
@@ -181,6 +184,8 @@ public class Main {
 
     public static void registerProf(Sistema sys) {
         String name = new String();
+        String number = new String();
+        String email = new String();
         String registration = new String();
         String subject = new String();
         int profInt = 0;
@@ -188,12 +193,16 @@ public class Main {
             System.out.println("Digite o nome do Professor: ");
             name = sc.nextLine();
             do {
-                System.out.println("Digite o número da matrícula do Professor: ");
+                System.out.println("Digite o número da matrícula do Professor (xxxxx): ");
                 registration = sc.nextLine();
             } while (!checkIfValidRegistration(registration));
+            System.out.println("Digite o Email do Professor: ");
+            email = sc.nextLine();
+            System.out.println("Digite o número de telefone do Professor: ");
+            number = sc.nextLine();
             System.out.println("Digite a matéria do Professor: ");
             subject = sc.nextLine();
-            Professor p = new Professor(name, registration, subject);
+            Professor p = new Professor(name, number, email, registration, subject);
             syscon.registrarProf(sys, p);
             profInt++;
         } while (profInt < TOTALPROFESSORES);
@@ -229,6 +238,25 @@ public class Main {
             }
         }
         return false;
+    }
+
+    public static boolean checkIfProfessor() {
+        if (sys.getListaProfessores().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean validRange(int option, int start, int end) {
+        if (option <= end && option >= start)
+            return true;
+        return false;
+    }
+
+    public static boolean checkIfHasElement(Sistema sys) {
+        if (sys.getDatabase().size() == 0)
+            return false;
+        return true;
     }
 
 }

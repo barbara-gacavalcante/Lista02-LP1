@@ -16,5 +16,7 @@ public interface SysInterface {
 
   public void printResponsavelAll();
 
+  public void printProfessores();
+
   public Aluno findAluno(String name);
 }
