@@ -77,7 +77,7 @@ public class Program {
                     System.out.print("\nA qual canal você gostaria de assistir agora? ");
                     int novoCanal = sc.nextInt();
                     controleRemoto.trocarCanal(novoCanal);
-                    System.out.println("\nCanal atualizado: " + controleRemoto.consultarCanal());
+        			System.out.println("\nCanal atualizado: " + controleRemoto.consultarCanal());
                     System.out.println("\n====================================================");
                     break;
                 case 6:

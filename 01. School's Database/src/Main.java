@@ -120,6 +120,7 @@ public class Main {
                             UI();
                         }
                         sys.printProfessores();
+                        UI();
                         break;
 
                     case 0:
