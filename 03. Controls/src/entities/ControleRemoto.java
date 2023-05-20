@@ -28,7 +28,10 @@ public class ControleRemoto {
 	}
 	
 	public void trocarCanal(int novoCanal) {
-		tv.setCanal(novoCanal);
+		if (novoCanal >= 1)
+			tv.setCanal(novoCanal);
+		else
+			System.out.println("\nCanal inválido.");
 	}
 	
 	public int consultarVolume() {
